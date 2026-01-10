@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VisaMate - Impact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Nav same as provided - Dark Teal/Black */
+        nav.navbar {
+            background: #0c2326;
+            min-height: 95px;
+            display: flex;
+            align-items: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        nav.navbar a {
+            color: #FFF !important;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        /* Layout Utilities */
+        .layout_padding {
+            padding: 80px 0;
+        }
+
+        .text_align_center {
+            text-align: center;
+        }
+
+        h3.main_heading {
+            font-size: 40px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+
+        h3.main_heading span {
+            color: #1a365d;
+            /* Darker Navy */
+        }
+
+        /* 3-Column Grid Fix */
+        .impact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+            /* Offset for column padding */
+        }
+
+        .impact-col {
+            flex: 0 0 33.333%;
+            /* Force 3 per row */
+            max-width: 33.333%;
+            padding: 15px;
+            display: flex;
+        }
+
+        .impact-card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            width: 100%;
+            transition: all 0.3s ease;
+            border-top: 5px solid #1a365d;
+            /* Dark Navy border */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+            border-top-color: #2b6cb0;
+            /* Royal Blue on hover */
+            box-shadow: 0 10px 25px rgba(26, 54, 93, 0.15);
+        }
+
+        .impact-card h4 {
+            color: #1a365d;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .impact-card p {
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 400;
+            color: #555;
+            margin: 0;
+        }
+
+        .num-box {
+            font-size: 12px;
+            font-weight: 900;
+            color: #2b6cb0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        footer {
+            background: #0c2326;
+            padding: 50px 0;
+            color: #fff;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 991px) {
+            .impact-col {
+                flex: 0 0 50%;
+                /* 2 per row on tablets */
+                max-width: 50%;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .impact-col {
+                flex: 0 0 100%;
+                /* 1 per row on phones */
+                max-width: 100%;
+            }
+
+            .layout_padding {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="imgs/VisaMate.png" alt="#" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="show-menu">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="form_fill.html">Try It</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="howitworks.html">How it works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="impact.html">Imapct</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="layout_padding">
+        <div class="container">
+            <div class="text_align_center">
+                <h3 class="main_heading">Project <span>Impact</span></h3>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-col">
+                    <div class="impact-card">
+                        <span class="num-box">Impact 01</span>
+                        <h4>Solves Real-World Problems</h4>
+                        <p>VisaMate simplifies the often chaotic visa application process, making international travel,
+                            study, and work accessible by removing bureaucratic confusion.</p>
+                    </div>
+                </div>
+
+                <div class="impact-col">
+                    <div class="impact-card">
+                        <span class="num-box">Impact 02</span>
+                        <h4>Personalized Guidance</h4>
+                        <p>Unlike generic instructions, we provide specific roadmaps based on nationality and
+                            destination, ensuring users only see the information relevant to them.</p>
+                    </div>
+                </div>
+
+                <div class="impact-col">
+                    <div class="impact-card">
+                        <span class="num-box">Impact 03</span>
+                        <h4>Saves Time & Money</h4>
+                        <p>Our tool helps prevent application rejections due to minor errors, saving users from
+                            expensive re-filing fees and months of wasted time.</p>
+                    </div>
+                </div>
+
+                <div class="impact-col">
+                    <div class="impact-card">
+                        <span class="num-box">Impact 04</span>
+                        <h4>Global Mobility</h4>
+                        <p>By lowering the "information barrier," we encourage more students and professionals to take
+                            the leap into international education and global careers.</p>
+                    </div>
+                </div>
+
+                <div class="impact-col">
+                    <div class="impact-card">
+                        <span class="num-box">Impact 05</span>
+                        <h4>Financial Accessibility</h4>
+                        <p>We believe travel guidance shouldn't be a luxury. Our AI tools provide high-quality support
+                            for free, empowering those who can't afford expensive legal agents.</p>
+                    </div>
+                </div>
+
+                <div class="impact-col">
+                    <div class="impact-card">
+                        <span class="num-box">Impact 06</span>
+                        <h4>Practical AI Innovation</h4>
+                        <p>VisaMate shows the tangible side of AI, proving that technology can be used to navigate
+                            complex legal landscapes and support important life decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 VisaMate Project. Simplifying the journey across borders.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VisaMate – Global Visa Guidance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            background: #f0f4f8;
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: #2d3748;
+        }
+
+        .navbar {
+            background-color: #1a202c;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: #2b6cb0 !important;
+            font-size: 24px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #4a5568 !important;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #2b6cb0 !important;
+        }
+
+        .form-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        h2 {
+            font-weight: 700;
+            color: #1a202c;
+            letter-spacing: -0.025em;
+            margin-bottom: 10px !important;
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 40px;
+        }
+
+        .progress-stack {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .progress-stack::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #e2e8f0;
+            z-index: 1;
+        }
+
+        .step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            flex: 1;
+        }
+
+        .step-icon {
+            width: 32px;
+            height: 32px;
+            background: #fff;
+            border: 2px solid #e2e8f0;
+            border-radius: 50%;
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: #a0aec0;
+            transition: all 0.3s ease;
+        }
+
+        .step.active .step-icon {
+            border-color: #3182ce;
+            background: #3182ce;
+            color: #fff;
+            box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.2);
+        }
+
+        .step.completed .step-icon {
+            border-color: #38a169;
+            background: #38a169;
+            color: #fff;
+        }
+
+        .step-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #718096;
+            text-transform: uppercase;
+        }
+
+        .step.active .step-label {
+            color: #2b6cb0;
+        }
+
+        #visaForm {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 40px;
+            row-gap: 24px;
+        }
+
+        .section-title {
+            grid-column: 1 / -1;
+            font-size: 15px;
+            font-weight: 700;
+            color: #2b6cb0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #e2e8f0;
+            margin-left: 15px;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input,
+        select {
+            width: 100%;
+            height: 48px !important;
+            padding: 10px 16px !important;
+            font-size: 15px !important;
+            border-radius: 8px !important;
+            border: 1.5px solid #e2e8f0 !important;
+            background-color: #f8fafc !important;
+            transition: all 0.2s ease-in-out !important;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none !important;
+            border-color: #3182ce !important;
+            background-color: #ffffff !important;
+            box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.15) !important;
+        }
+
+        .gender-options {
+            display: flex;
+            gap: 20px;
+            padding-top: 10px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        #study,
+        #work,
+        #travel,
+        #family,
+        #transit,
+        #medical,
+        #business,
+        #research,
+        #volunteer,
+        #diplomatic,
+        #event,
+        #pr {
+            grid-column: 1 / -1;
+            padding: 30px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .btn-submit {
+            grid-column: 1 / -1;
+            background: #2b6cb0;
+            color: white;
+            border: none;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            margin-top: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: none;
+            /* Hidden until purpose is selected */
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #2c5282;
+        }
+
+        @media (max-width: 768px) {
+
+            #visaForm,
+            #study,
+            #work,
+            #travel,
+            #family,
+            #transit,
+            #medical,
+            #business,
+            #research,
+            #volunteer,
+            #diplomatic,
+            #event,
+            #pr {
+                grid-template-columns: 1fr;
+            }
+
+            .step-label {
+                display: none;
+            }
+
+            .form-container {
+                padding: 25px;
+                margin: 10px;
+            }
+        }
+
+        /* Keeps radio circles standard size */
+        input[type="radio"] {
+            width: auto !important;
+            height: auto !important;
+            margin-right: 8px !important;
+            cursor: pointer;
+        }
+
+        /* Container for the options */
+        .options-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-top: 5px;
+        }
+
+        .radio-label-custom {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: #4a5568;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        #aiResult ul {
+            list-style-type: disc;
+            /* standard bullets */
+            padding-left: 20px;
+            /* indent bullets */
+            margin: 10px 0;
+            /* spacing around the list */
+        }
+
+        #aiResult li {
+            margin-bottom: 12px;
+            /* spacing between points */
+            /* bold text */
+            line-height: 1.5;
+            /* improve readability */
+        }
+
+        #aiResult li a {
+            color: #2b6cb0;
+            /* clickable link color */
+            text-decoration: underline;
+            /* underline links */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header" class="header">
+        <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img src="imgs/VisaMate.png" alt="#" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="show-menu">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="form_fill.html">Try It</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="howitworks.html">How it works</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="impact.html">Imapct</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="form-container">
+        <h2 class="text-center">VisaMate – Smart Global Visa Assistant</h2>
+        <p class="subtitle">Complete the details below to receive personalized visa guidance.</p>
+
+        <div class="progress-stack">
+            <div class="step active" id="step1">
+                <div class="step-icon">1</div>
+                <div class="step-label">Personal</div>
+            </div>
+            <div class="step" id="step2">
+                <div class="step-icon">2</div>
+                <div class="step-label">Destination</div>
+            </div>
+            <div class="step" id="step3">
+                <div class="step-icon">3</div>
+                <div class="step-label">Purpose</div>
+            </div>
+            <div class="step" id="step4">
+                <div class="step-icon">4</div>
+                <div class="step-label">Specifics</div>
+            </div>
+        </div>
+
+        <form id="visaForm">
+
+            <div class="section-title">General Information</div>
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="John Doe" required class="track-step" data-step="1" name="name">
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="gender-options">
+                    <label><input type="radio" name="gender" value="male" required> Male</label>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+                    <label><input type="radio" name="gender" value="other"> Other</label>
+
+
+
+                </div>
+            </div>
+
+            <div class="section-title">Nationality & Residence</div>
+
+            <div class="form-group">
+                <label>Nationality</label>
+                <input type="text" placeholder="e.g. British" required class="track-step" data-step="1"
+                    name="nationality">
+            </div>
+
+            <div class="form-group">
+                <label>Country of Residence</label>
+                <input type="text" placeholder="e.g. Indian" required class="track-step" data-step="1"
+                    name="residence_country">
+            </div>
+
+            <div class="section-title">Traveler Status</div>
+
+            <div class="form-group">
+                <label>How are you traveling?</label>
+                <div class="options-stack">
+                    <label class="radio-label-custom">
+                        <input type="radio" name="travel_type" value="solo" class="track-step" data-step="2"> Solo
+                    </label>
+                    <label class="radio-label-custom">
+                        <input type="radio" name="travel_type" value="group" class="track-step" data-step="2"> Group /
+                        Family
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div id="traveler-placeholder"
+                    style="color: #a0aec0; font-size: 13px; font-style: italic; margin-top: 32px;">
+                    Select travel type to see age options...
+                </div>
+
+                <div id="soloAdultBlock" style="display:none;">
+                    <label>What is your age group?</label>
+                    <div class="options-stack">
+                        <label class="radio-label-custom">
+                            <input type="radio" name="solo_age_group" value="adult" class="track-step" data-step="2">
+                            Adult (18+)
+                        </label>
+                        <label class="radio-label-custom">
+                            <input type="radio" name="solo_age_group" value="minor" class="track-step" data-step="2">
+                            Minor (Under 18)
+                        </label>
+                    </div>
+                </div>
+
+                <div id="groupMinorBlock" style="display:none;">
+                    <label>Are there minors in your group?</label>
+                    <div class="options-stack">
+                        <label class="radio-label-custom">
+                            <input type="radio" name="group_has_minors" value="no-minors" class="track-step"
+                                data-step="2"> No, adults only
+                        </label>
+                        <label class="radio-label-custom">
+                            <input type="radio" name="group_has_minors" value="has-minors" class="track-step"
+                                data-step="2"> Yes, includes minors
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="section-title">Destination Details</div>
+
+            <div class="form-group">
+                <label>Destination Continent</label>
+                <select id="continent" required class="track-step" data-step="2" name="continent">
+                    <option value="">Select</option>
+                    <option value="asia">Asia</option>
+                    <option value="europe">Europe</option>
+                    <option value="north">North America</option>
+                    <option value="south">South America</option>
+                    <option value="africa">Africa</option>
+                    <option value="oceania">Oceania</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Destination Country</label>
+                <select id="country" name="destination_country" required class="track-step" data-step="2">
+                    <option value="">Select continent first</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Intended Start Date</label>
+                <input type="date" required class="track-step" data-step="2" name="start_date">
+            </div>
+
+            <div class="form-group">
+                <label>Intended Length of Stay</label>
+                <select required class="track-step" data-step="2" name="duration">
+                    <option value="">Select</option>
+                    <option>Less than 3 months</option>
+                    <option>3 – 6 months</option>
+                    <option>More than 6 months</option>
+                </select>
+            </div>
+
+            <div class="section-title">Purpose of Travel</div>
+            <div class="form-group full-width">
+                <label>Primary Purpose</label>
+                <select id="purpose" required class="track-step" data-step="3" name="purpose">
+                    <option value="">Select</option>
+                    <option value="study">Study</option>
+                    <option value="work">Work / Employment</option>
+                    <option value="travel">Tourism / Travel</option>
+                    <option value="family">Family / Dependent</option>
+                    <option value="transit">Transit</option>
+                    <option value="medical">Medical / Health</option>
+                    <option value="business">Business / Short-term Work</option>
+                    <option value="research">Research / Academic</option>
+                    <option value="volunteer">Volunteer / Humanitarian</option>
+                    <option value="diplomatic">Diplomatic / Official</option>
+                    <option value="event">Special Event / Function</option>
+                    <option value="pr">Permanent Residency / Immigration</option>
+                </select>
+            </div>
+
+            <!-- STUDY -->
+            <div id="study" class="hidden">
+                <div class="section-title">Study Details</div>
+                <div class="form-group"><label>Program Type</label><select name="study_program_type">
+                        <option>High School</option>
+                        <option>Bachelor</option>
+                        <option>Master</option>
+                        <option>PhD</option>
+                    </select></div>
+                <div class="form-group"><label>Host Institution</label><input name="study_institution"></div>
+                <div class="form-group"><label>Admission Status</label><select name="study_admission_status">
+                        <option>Accepted</option>
+                        <option>Pending</option>
+                    </select></div>
+                <div class="form-group"><label>Study Authorization Available?</label><select name="study_authorization">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Funding Source</label><select name="study_funding_source">
+                        <option>Self</option>
+                        <option>Scholarship</option>
+                        <option>Sponsor</option>
+                    </select></div>
+                <div class="form-group"><label>Proof of Funds Available?</label><select name="study_proof_of_funds">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+            </div>
+
+            <!-- WORK -->
+            <div id="work" class="hidden">
+                <div class="section-title">Employment Details</div>
+                <div class="form-group"><label>Employment Type</label><select name="work_employment_type">
+                        <option>Skilled</option>
+                        <option>Temporary</option>
+                    </select></div>
+                <div class="form-group"><label>Paid or Unpaid</label><select name="work_paid_status">
+                        <option>Paid</option>
+                        <option>Unpaid</option>
+                    </select></div>
+                <div class="form-group"><label>Employer Name</label><input name="work_employer_name"></div>
+                <div class="form-group"><label>Job Title</label><input name="work_job_title"></div>
+                <div class="form-group"><label>Occupation</label><select name="work_occupation">
+                        <option>IT / Software</option>
+                        <option>Engineering</option>
+                        <option>Healthcare</option>
+                        <option>Education</option>
+                        <option>Business</option>
+                        <option>Skilled Trades</option>
+                        <option>Other</option>
+                    </select></div>
+                <div class="form-group"><label>Contract Available?</label><select name="work_contract_available">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Work Authorization Status</label><select
+                        name="work_authorization_status">
+                        <option>Required</option>
+                        <option>Not Required</option>
+                    </select></div>
+                <div class="form-group"><label>Education Level</label><select name="work_education_level">
+                        <option>High School</option>
+                        <option>Diploma</option>
+                        <option>Bachelor</option>
+                        <option>Master</option>
+                        <option>PhD</option>
+                    </select></div>
+                <div class="form-group"><label>Work Experience (Years)</label><select name="work_experience_years">
+                        <option>None</option>
+                        <option>Less than 1 year</option>
+                        <option>1–2</option>
+                        <option>3–5</option>
+                        <option>6–10</option>
+                        <option>10+</option>
+                    </select></div>
+            </div>
+
+            <!-- TRAVEL -->
+            <div id="travel" class="hidden">
+                <div class="section-title">Tourism Details</div>
+                <div class="form-group"><label>Entry Date</label><input type="date" name="travel_entry_date"></div>
+                <div class="form-group"><label>Accommodation Type</label><select name="travel_accommodation_type">
+                        <option>Hotel</option>
+                        <option>Friend / Family</option>
+                    </select></div>
+                <div class="form-group"><label>Funding Source</label><select name="travel_funding_source">
+                        <option>Self</option>
+                        <option>Sponsor</option>
+                    </select></div>
+                <div class="form-group"><label>Proof of Funds</label><select name="travel_proof_of_funds">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Return Tie Evidence</label><select name="travel_return_ties">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+            </div>
+
+            <!-- FAMILY -->
+            <div id="family" class="hidden">
+                <div class="section-title">Family / Dependent Details</div>
+                <div class="form-group"><label>Relationship to Host</label><select name="family_relationship">
+                        <option>Spouse</option>
+                        <option>Parent</option>
+                        <option>Child</option>
+                    </select></div>
+                <div class="form-group"><label>Host Legal Status</label><select name="family_host_status">
+                        <option>Citizen</option>
+                        <option>PR</option>
+                        <option>Visa Holder</option>
+                    </select></div>
+                <div class="form-group"><label>Temporary or Long-term</label><select name="family_duration_type">
+                        <option>Temporary</option>
+                        <option>Long-term</option>
+                    </select></div>
+                <div class="form-group"><label>Proof of Relationship</label><select name="family_proof_relationship">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Funding Source</label><select name="family_funding_source">
+                        <option>Self</option>
+                        <option>Host</option>
+                    </select></div>
+                <div class="form-group"><label>Invitation Letter Available?</label><select
+                        name="family_invitation_letter">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Return Tie Evidence</label><select name="family_return_ties">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+            </div>
+
+            <!-- TRANSIT -->
+            <div id="transit" class="hidden">
+                <div class="section-title">Transit Details</div>
+                <div class="form-group"><label>Transit Country</label><input name="transit_country"></div>
+                <div class="form-group"><label>Final Destination Country</label><input name="transit_final_destination">
+                </div>
+                <div class="form-group"><label>Transit Duration</label><select name="transit_duration">
+                        <option>Less than 24 hours</option>
+                        <option>1–3 days</option>
+                    </select></div>
+                <div class="form-group"><label>Airside or Landside</label><select name="transit_area_type">
+                        <option>Airside</option>
+                        <option>Landside</option>
+                    </select></div>
+                <div class="form-group"><label>Onward Ticket Confirmed?</label><select name="transit_onward_ticket">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Final Destination Visa Status</label><select
+                        name="transit_final_visa_status">
+                        <option>Valid</option>
+                        <option>Not Required</option>
+                    </select></div>
+            </div>
+
+            <!-- MEDICAL -->
+            <div id="medical" class="hidden">
+                <div class="section-title">Medical Details</div>
+                <div class="form-group"><label>Medical Purpose</label><input name="medical_purpose"></div>
+                <div class="form-group"><label>Hospital Name</label><input name="medical_hospital_name"></div>
+                <div class="form-group"><label>Acceptance Letter Available?</label><select
+                        name="medical_acceptance_letter">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Funding Source</label><select name="medical_funding_source">
+                        <option>Self</option>
+                        <option>Sponsor</option>
+                    </select></div>
+                <div class="form-group"><label>Insurance Available?</label><select name="medical_insurance">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Travel Companion</label><select name="medical_travel_companion">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+            </div>
+
+            <!-- BUSINESS -->
+            <div id="business" class="hidden">
+                <div class="section-title">Business / Short-term Work</div>
+                <div class="form-group"><label>Activity Type</label><input name="business_activity_type"></div>
+                <div class="form-group"><label>Paid by Destination Entity?</label><select name="business_paid_by_host">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Productive Work?</label><select name="business_productive_work">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Host Company</label><input name="business_host_company"></div>
+                <div class="form-group"><label>Invitation Letter Available?</label><select
+                        name="business_invitation_letter">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Work Authorization Required?</label><select
+                        name="business_work_authorization">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Return Intent</label><select name="business_return_intent">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+            </div>
+
+            <!-- RESEARCH -->
+            <div id="research" class="hidden">
+                <div class="section-title">Research / Academic</div>
+                <div class="form-group"><label>Research Purpose</label><input name="research_purpose"></div>
+                <div class="form-group"><label>Host Institution</label><input name="research_host_institution"></div>
+                <div class="form-group"><label>Invitation Letter</label><select name="research_invitation_letter">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Paid or Unpaid</label><select name="research_paid_status">
+                        <option>Paid</option>
+                        <option>Unpaid</option>
+                    </select></div>
+                <div class="form-group"><label>Authorization Required?</label><select
+                        name="research_authorization_required">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Funding Source</label><select name="research_funding_source">
+                        <option>Self</option>
+                        <option>Grant</option>
+                    </select></div>
+            </div>
+
+            <!-- VOLUNTEER -->
+            <div id="volunteer" class="hidden">
+                <div class="section-title">Volunteer / Humanitarian</div>
+                <div class="form-group"><label>Activity Type</label><input name="volunteer_activity_type"></div>
+                <div class="form-group"><label>Paid or Unpaid</label><select name="volunteer_paid_status">
+                        <option>Paid</option>
+                        <option>Unpaid</option>
+                    </select></div>
+                <div class="form-group"><label>Host Organization</label><input name="volunteer_host_org"></div>
+                <div class="form-group"><label>Invitation Letter</label><select name="volunteer_invitation_letter">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Authorization Required?</label><select
+                        name="volunteer_authorization_required">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Funding Source</label><select name="volunteer_funding_source">
+                        <option>Self</option>
+                        <option>Organization</option>
+                    </select></div>
+            </div>
+
+            <!-- DIPLOMATIC -->
+            <div id="diplomatic" class="hidden">
+                <div class="section-title">Diplomatic / Official</div>
+                <div class="form-group"><label>Passport Type</label><select name="diplomatic_passport_type">
+                        <option>Diplomatic</option>
+                        <option>Official</option>
+                    </select></div>
+                <div class="form-group"><label>Sending Authority</label><input name="diplomatic_sending_authority">
+                </div>
+                <div class="form-group"><label>Host Authority</label><input name="diplomatic_host_authority"></div>
+                <div class="form-group"><label>Note Verbale Available?</label><select name="diplomatic_note_verbale">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Dependents Traveling?</label><select name="diplomatic_dependents">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+            </div>
+
+            <!-- EVENT -->
+            <div id="event" class="hidden">
+                <div class="section-title">Special Event / Function</div>
+                <div class="form-group"><label>Event Type</label><input name="event_type"></div>
+                <div class="form-group"><label>Traveler Role</label><input name="event_traveler_role"></div>
+                <div class="form-group"><label>Paid or Unpaid</label><select name="event_paid_status">
+                        <option>Paid</option>
+                        <option>Unpaid</option>
+                    </select></div>
+                <div class="form-group"><label>Active Participation?</label><select name="event_active_participation">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Authorization Required?</label><select
+                        name="event_authorization_required">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Exit Intent After Event</label><select name="event_exit_intent">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+            </div>
+
+            <!-- PR -->
+            <div id="pr" class="hidden">
+                <div class="section-title">Permanent Residency</div>
+                <div class="form-group"><label>Immigration Pathway</label><select name="pr_pathway">
+                        <option>Skilled / Points-Based</option>
+                        <option>Employer Sponsored</option>
+                        <option>Family Sponsorship</option>
+                        <option>Investor</option>
+                        <option>Humanitarian</option>
+                    </select></div>
+                <div class="form-group"><label>Sponsor Available?</label><select name="pr_sponsor_available">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Sponsor Status</label><select name="pr_sponsor_status">
+                        <option>Citizen</option>
+                        <option>PR</option>
+                    </select></div>
+                <div class="form-group"><label>Education Level</label><select name="pr_education_level">
+                        <option>High School</option>
+                        <option>Diploma</option>
+                        <option>Bachelor</option>
+                        <option>Master</option>
+                        <option>PhD</option>
+                    </select></div>
+                <div class="form-group"><label>Occupation</label><select name="pr_occupation">
+                        <option>IT / Software</option>
+                        <option>Engineering</option>
+                        <option>Healthcare</option>
+                        <option>Education</option>
+                        <option>Business</option>
+                        <option>Skilled Trades</option>
+                        <option>Other</option>
+                    </select></div>
+                <div class="form-group"><label>Work Experience (Years)</label><select name="pr_work_experience">
+                        <option>None</option>
+                        <option>Less than 1 year</option>
+                        <option>1–2</option>
+                        <option>3–5</option>
+                        <option>6–10</option>
+                        <option>10+</option>
+                    </select></div>
+                <div class="form-group"><label>Language Test Status</label><select name="pr_language_test">
+                        <option>Taken</option>
+                        <option>Not Taken</option>
+                    </select></div>
+                <div class="form-group"><label>Proof of Funds</label><select name="pr_proof_of_funds">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+                <div class="form-group"><label>Dependents Included?</label><select name="pr_dependents">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select></div>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn-submit">Generate Visa Guidance</button>
+
+        </form>
+        <div id="aiResult" class="mt-4" style="display:none;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+">
+        </div>
+    </div>
+    <div class="row"></div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 VisaMate Project. Simplifying the journey across borders.</p>
+        </div>
+    </footer>
+    <script>
+        const sections = ["study", "work", "travel", "family", "transit", "medical", "business", "research", "volunteer", "diplomatic", "event", "pr"];
+        const submitBtn = document.getElementById("submitBtn");
+
+        // Purpose selection
+        document.getElementById("purpose").addEventListener("change", function () {
+            sections.forEach(id => {
+                const section = document.getElementById(id);
+                section.style.display = "none";
+                section.classList.add('hidden');
+            });
+
+            if (this.value) {
+                const target = document.getElementById(this.value);
+                target.style.display = "grid";
+                target.classList.remove('hidden');
+                submitBtn.style.display = "block";
+                updateProgress(4);
+            } else {
+                submitBtn.style.display = "none";
+                updateProgress(3);
+            }
+        });
+
+        // Country dropdown
+        const countries = {
+            asia: ["India", "Japan", "Singapore"],
+            europe: ["Germany", "France", "UK"],
+            north: ["USA", "Canada"],
+            south: ["Brazil", "Argentina"],
+            africa: ["Nigeria", "Kenya"],
+            oceania: ["Australia", "New Zealand"]
+        };
+
+        document.getElementById("continent").addEventListener("change", function () {
+            const c = document.getElementById("country");
+            c.innerHTML = '<option value="">Select country</option>';
+            (countries[this.value] || []).forEach(x => {
+                const o = document.createElement("option");
+                o.text = x;
+                o.value = x.toLowerCase();
+                c.add(o);
+            });
+        });
+
+        // Progress update
+        function updateProgress(stepNumber) {
+            for (let i = 1; i <= 4; i++) {
+                const stepEl = document.getElementById('step' + i);
+                stepEl.classList.remove('active', 'completed');
+                if (i < stepNumber) stepEl.classList.add('completed');
+                else if (i === stepNumber) stepEl.classList.add('active');
+            }
+        }
+
+        document.querySelectorAll('.track-step').forEach(input => {
+            input.addEventListener('focus', function () {
+                updateProgress(parseInt(this.dataset.step));
+            });
+        });
+
+        const travelTypeRadios = document.getElementsByName("travel_type");
+        travelTypeRadios.forEach(radio => {
+            radio.addEventListener("change", function () {
+                updateProgress(2);
+                document.getElementById("traveler-placeholder").style.display = "none";
+                document.getElementById("soloAdultBlock").style.display = this.value === "solo" ? "block" : "none";
+                document.getElementById("groupMinorBlock").style.display = this.value !== "solo" ? "block" : "none";
+            });
+        });
+
+        // ==========================
+        // FORM SUBMIT & RESULT FORMAT
+        // ==========================
+        document.getElementById('visaForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                gender: formData.get('gender'),
+                purpose: formData.get('purpose'),
+                continent: formData.get('continent'),
+                destination_country: formData.get('destination_country'),
+                nationality: formData.get('nationality'),
+                duration: formData.get('duration'),
+                extra_fields: {}
+            };
+
+            formData.forEach((value, key) => {
+                if (!(key in data)) {
+                    data.extra_fields[key] = value;
+                }
+            });
+
+            const resultDiv = document.getElementById('aiResult');
+            resultDiv.style.display = "block";
+
+            // ===== Show loader =====
+            resultDiv.innerHTML = `
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div class="spinner-border text-primary" role="status" style="width:24px; height:24px;">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <span>Generating AI response, please wait...</span>
+        </div>
+    `;
+
+            try {
+                const response = await fetch("http://localhost:8000/visa/ask", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                // ===== Process AI result =====
+                resultDiv.innerHTML = "";
+
+                if (result.status === 'success') {
+                    // Remove stars and empty lines
+                    const lines = result.summary
+                        .split(/\n/)
+                        .map(l => l.replace(/^[\*\-\s]+/, '').trim())
+                        .filter(l => l !== "");
+
+                    const ul = document.createElement("ul");
+                    ul.style.paddingLeft = "20px";
+                    ul.style.lineHeight = "1.6";
+
+                    lines.forEach(line => {
+                        const li = document.createElement("li");
+
+                        // Bold the document/point name (before colon)
+                        const match = line.match(/^([^:]+):\s*(.*)$/);
+                        if (match) {
+                            li.innerHTML = `<strong>${match[1].trim()}</strong>: ${match[2].trim()}`;
+                        } else {
+                            li.textContent = line;
+                        }
+
+                        // Convert links to clickable anchors
+                        li.innerHTML = li.innerHTML.replace(
+                            /(https?:\/\/[^\s]+)/g,
+                            '<a href="$1" target="_blank">$1</a>'
+                        );
+
+                        ul.appendChild(li);
+                    });
+
+                    resultDiv.appendChild(ul);
+
+                } else {
+                    resultDiv.innerHTML = `<p>${result.summary}</p>`;
+                }
+
+            } catch (error) {
+                resultDiv.innerHTML = `<p>Error: ${error.message}</p>`;
+            }
+        });
+
+    </script>
+
+    <script>
+        function formatVisaOutput(rawText) {
+            if (!rawText) return "";
+
+            const lines = rawText
+                .split("\n")
+                .map(l => l.trim())
+                .filter(l =>
+                    l &&
+                    !l.toLowerCase().startsWith("as a professional") &&
+                    !l.toLowerCase().startsWith("here is")
+                );
+
+            let html = "<ul style='padding-left:20px; line-height:1.7;'>";
+
+            lines.forEach(line => {
+                // Remove numbering and stars
+                line = line.replace(/^\d+[\.\)]?\s*/, "");
+                line = line.replace(/\*\*/g, "");
+
+                const colonIndex = line.indexOf(":");
+
+                if (colonIndex !== -1) {
+                    const title = line.substring(0, colonIndex).trim();
+                    const desc = line.substring(colonIndex + 1).trim();
+
+                    html += `<li><strong>${title}:</strong> ${desc}</li>`;
+                } else {
+                    html += `<li>${line}</li>`;
+                }
+            });
+
+            html += "</ul>";
+            return html;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>How It Works | VisaMate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #f4f7f9 !important;
+            color: #333 !important;
+            line-height: 1.6;
+        }
+
+        /* Main Title Styling */
+        .main-title {
+            font-weight: 900 !important;
+            color: #0c2326 !important;
+            text-transform: uppercase;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+        }
+
+        /* Structured Section Styling */
+        .step-container {
+            background: #fff !important;
+            border-radius: 12px !important;
+            padding: 40px !important;
+            margin-bottom: 30px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+            border-left: 8px solid #1a365d !important;
+            /* Dark Blue Accent */
+            transition: 0.3s;
+        }
+
+        .step-container:hover {
+            transform: translateX(10px);
+        }
+
+        .step-container h3 {
+            color: #1a365d !important;
+            font-weight: 700 !important;
+            margin-bottom: 20px !important;
+            font-size: 24px !important;
+        }
+
+        /* Processing Cards Styling */
+        .process-box {
+            background: #f8fafc !important;
+            border: 1px solid #e2e8f0 !important;
+            padding: 25px !important;
+            border-radius: 10px !important;
+            text-align: center;
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .process-box:hover {
+            background: #1a365d !important;
+            color: #fff !important;
+        }
+
+        .process-box h5 {
+            font-weight: 700 !important;
+            margin-bottom: 15px !important;
+        }
+
+        /* Logic Background Section */
+        .bg-logic {
+            border-left: 8px solid #2b6cb0 !important;
+            /* Royal Blue Accent */
+        }
+
+        /* Footer Note */
+        .disclaimer-box {
+            background: #e2e8f0 !important;
+            padding: 20px !important;
+            border-radius: 8px !important;
+            font-style: italic;
+            color: #4a5568 !important;
+        }
+
+        /* Button Styling */
+        .btn-action {
+            background-color: #1a365d !important;
+            color: white !important;
+            padding: 12px 35px !important;
+            border-radius: 50px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="imgs/VisaMate.png" alt="#" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="show-menu">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="form_fill.html">Try It</a></li>
+                    <li class="nav-item"><a class="nav-link" href="howitworks.html">How it works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="impact.html">Impact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mb-5">
+        <h1 class="text-center main-title">How VisaMate Works</h1>
+
+        <div class="step-container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h3>1. Understanding the Problem</h3>
+                    <p>Visa processes are often confusing because requirements change based on nationality, destination,
+                        and purpose of travel. Important information is scattered across official sites, making it hard
+                        for users to know where to start.</p>
+                    <p>VisaMate was created to <strong>centralize</strong> and <strong>simplify</strong> this
+                        experience, transforming complex government data into clear guidance.</p>
+                </div>
+                <div class="col-md-4 step-img-right">
+                    <img src="imgs/thinking.png" alt="Visa confusion illustration" class="step-img">
+                </div>
+            </div>
+        </div>
+        <div class="step-container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h3>2. Simple User Input</h3>
+                    <p>
+                        Users begin by entering basic details such as their nationality,
+                        destination country, and reason for travel. Our intelligent form
+                        is designed to capture only what is necessary, ensuring a
+                        friction-free experience.
+                    </p>
+                </div>
+                <div class="col-md-4 step-img-right">
+                    <img src="imgs/searching.png" alt="Visa confusion illustration" class="step-img">
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="step-container">
+            <h3>3. Smart Processing Pipeline</h3>
+            <p class="mb-4">Our backend architecture follows a logical sequence to ensure accuracy:</p>
+
+            <div class="row mt-4">
+
+                <div class="col-md-4 mb-3">
+                    <div class="hiw_card text-center">
+                        <img src="imgs/blog1.png" alt="User Details">
+                        <h4>User Details</h4>
+                        <p>Capturing Citizenship, Destination, and Travel Intent as primary variables.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="hiw_card text-center">
+                        <img src="imgs/blog2.avif" alt="AI Analysis">
+                        <h4>AI Analysis</h4>
+                        <p>Processing the variables through the Gemini AI model to cross-reference global visa rules.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="hiw_card text-center">
+                        <img src="imgs/blog3.jpg" alt="Personal Matching">
+                        <h4>Personal Matching</h4>
+                        <p>Generating a custom roadmap with specific document requirements and timelines.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="step-container bg-logic">
+            <div class="row align-items-center">
+
+                <!-- TEXT (LEFT) -->
+                <div class="col-md-8">
+                    <h3>4. Clear Results</h3>
+                    <p>
+                        After processing, users receive a personalized roadmap.
+                        This includes the exact visa type required, a comprehensive
+                        document checklist, and recommended next steps for submission.
+                    </p>
+                </div>
+
+                <!-- IMAGE (RIGHT) -->
+                <div class="col-md-4 text-right">
+                    <img src="imgs/result.jpg" alt="Visa results roadmap" class="step-img">
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="step-container">
+            <h3>5. Why This Matters</h3>
+            <p>By reducing confusion and providing a clear path, VisaMate helps users feel more confident. We bridge the
+                gap between complex legal requirements and your global travel goals.</p>
+            <div class="text-center">
+                <a href="form_fill.html" class="btn-action">Experience it now</a>
+            </div>
+        </div>
+
+        <div class="text-center disclaimer-box">
+            VisaMate does not replace official embassy websites — it helps users navigate and understand them faster.
+        </div>
+    </div>
+    <div class="row"></div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 VisaMate Project. Simplifying the journey across borders.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
