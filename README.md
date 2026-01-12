@@ -1,3 +1,4 @@
+![Project Thumbnail](VisaMateFrontEnd/imgs/VisaMateLogo.jpg)
 # VisaMate – Almenda Hacks Project 
 
 VisaMate is an AI-powered visa guidance platform that helps users generate accurate visa document checklists 
@@ -62,4 +63,4 @@ Contact the maintainer for collaboration
 
 ## License
 This project is open-source for hackathon use.
-![Project Thumbnail](VisaMateFrontEnd/imgs/VisaMateLogo.jpg)
+
