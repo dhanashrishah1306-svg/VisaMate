@@ -62,3 +62,4 @@ Contact the maintainer for collaboration
 
 ## License
 This project is open-source for hackathon use.
+![Project Thumbnail](VisaMateFrontEnd/imgs/VisaMateLogo.jpg)
